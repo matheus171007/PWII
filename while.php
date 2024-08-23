@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Estrutura Condicional (IF ELSE)</title>
+    <title>Laço de Repetição While</title>
     <link href="bootsrap.mim.css" rel="stylesheet" />
 </head>
 <body>
@@ -64,103 +64,62 @@
 
     <div class="container">
 
-    <h1>Estrutura Condicional (IF ELSE)</h1>
-
-    <p>$inteira = 10 </p>
-    <p>$nome = "Prof" </p>
-    <p>$valor = 10.50 </p>
-    <p>$ativo = true </p>
-
+    <h1>Laço de Repetição While</h1>
+    <p> O laço de repetição while necessita de 3 itens para se tornar um loop: </p>
+    <ol>
+        <li>Variável Controladora</li>
+        <li>Condição de continuação</li>
+        <li>Incremento da variável controladora</li>
+    </ol>
     <pre>
-     
-        if($inteira == 10)
+        $i = 0; //Declaração da variável controladora
+        while( $i < 10)
         {
-            echo "O conteudo é 10";
-        }
-        else if($inteira >= 11)
-        {
-            echo "Maior ou Igual a 11";
-        }
-        else
-        {
-            echo "Não é 10";
+            //executo esse bloco de código
+            
+            //Incrementando a variável de controle
+            $i = $i + 1;
+            $i++;
+            $i += 1;
+
         }
     </pre>
-    <?php
-            $inteira = 9;
-            if($inteira == 10)
+        <p>A derivação Do While obrigatoriamente executa uma vez no minimo o bloco de código </p>
+        <pre>
+            $i = 0;
+            do
             {
-                echo "<h2>A variável é 10</h2>";
+                $i++;
             }
-            else if($inteira >= 11)
-            {
-                echo "<h2>A variável é maior ou igual a 11</h2>";
-            }
-            else
-            {
-                echo "<h2>A variável só pode ser menor que 10</h2>";
-            }
-        ?>
+            while($i < 10);
+        </pre>
+            exemplo:
+            <?php
+                $i =1;
+                while($i < 20)
+                {
+                    echo "<h1> $i º h1 </h1>";
+                    $i++; 
+                }
+            ?>
 
-    <p>
-        As variaveis string podem ser contados os caracteres e usados no if
-    </p>
-    <pre>
-        if( strlen($nome) > 10 )
-        {
-            echo "Seu nome tem mais que 10 caracteres quantidade é ".strlen($nome);
-        }
-    </pre>
-        <?php
-        $nome = "ney";
-        if(strlen($nome) > 5)
-        {
-            echo "<h2>Seu nome tem mais que 10 caracteres quantidade é ".strlen($nome)."</h2>";
-        }
-        else
-        {
-            echo "<h2>Seu nome tem menos que 10 caracteres quantidade é ".strlen($nome)."</h2>";
-        }
-        ?>
+            <p>Outra forma de implementação é: </p>
+            <?php
+                $i = 1;
+                do
+                {
+                    ?>
 
-    <p>
-        Podemos verificar se a variavel $nome está vazia
-    </p>
-    <pre>
-        if( empty($nome) )
-        {
-            echo "Sua variavel está vazia";
-        }
-    </pre>
-    <p>
-        Também podemos comparar string normalmente
-    </p>
-    <pre>
-        if ($nome == "Fernando")
-        {
-            echo "Nome igual";
-        }
-        else
-        {
-            echo "Nomes diferentes";
-        }
-    </pre>
-    <p>
-        Podemos verificar se a variavel é verdadeira ou falsa  
-    </p>
-    <pre>
-        if($ativo)
-        {
-            echo "Verdadeira";
-        }
-        else
-        {
-            echo "Falsa";
-        }
-    </pre>
+                        <h2> HTML NORMAL </h2>
+                        <p> <?php echo $i ; ?> </p>
+                    <?php
+                $i++;
+                }
+                while($i < 5);
+            ?>
 
 </div>
 
-    <script src="bootstrap.bundle.min.js"></script>
+       <script src="bootstrap.bundle.min.js"></script>
 </body>
 </html>

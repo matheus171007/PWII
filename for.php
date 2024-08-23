@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Estrutura Condicional (IF ELSE)</title>
+    <title>Laço de Repetição FOR</title>
     <link href="bootsrap.mim.css" rel="stylesheet" />
 </head>
 <body>
@@ -64,103 +64,32 @@
 
     <div class="container">
 
-    <h1>Estrutura Condicional (IF ELSE)</h1>
-
-    <p>$inteira = 10 </p>
-    <p>$nome = "Prof" </p>
-    <p>$valor = 10.50 </p>
-    <p>$ativo = true </p>
-
+    <h1>Laço de Repetição FOR</h1>
+    <p> Esse laço de repetição é mais utilizado e mais prático </p>
     <pre>
-     
-        if($inteira == 10)
+        for($i = 0; $i < 10; $i++)
         {
-            echo "O conteudo é 10";
-        }
-        else if($inteira >= 11)
-        {
-            echo "Maior ou Igual a 11";
-        }
-        else
-        {
-            echo "Não é 10";
-        }
-    </pre>
-    <?php
-            $inteira = 9;
-            if($inteira == 10)
-            {
-                echo "<h2>A variável é 10</h2>";
-            }
-            else if($inteira >= 11)
-            {
-                echo "<h2>A variável é maior ou igual a 11</h2>";
-            }
-            else
-            {
-                echo "<h2>A variável só pode ser menor que 10</h2>";
-            }
-        ?>
-
-    <p>
-        As variaveis string podem ser contados os caracteres e usados no if
-    </p>
-    <pre>
-        if( strlen($nome) > 10 )
-        {
-            echo "Seu nome tem mais que 10 caracteres quantidade é ".strlen($nome);
+            echo "$i";
         }
     </pre>
         <?php
-        $nome = "ney";
-        if(strlen($nome) > 5)
-        {
-            echo "<h2>Seu nome tem mais que 10 caracteres quantidade é ".strlen($nome)."</h2>";
-        }
-        else
-        {
-            echo "<h2>Seu nome tem menos que 10 caracteres quantidade é ".strlen($nome)."</h2>";
-        }
-        ?>
+            for($i = 0; $i <= 3; $i++)
+            {
+                echo "<b>Oiii</b><br>";
+            }
 
-    <p>
-        Podemos verificar se a variavel $nome está vazia
-    </p>
-    <pre>
-        if( empty($nome) )
-        {
-            echo "Sua variavel está vazia";
-        }
-    </pre>
-    <p>
-        Também podemos comparar string normalmente
-    </p>
-    <pre>
-        if ($nome == "Fernando")
-        {
-            echo "Nome igual";
-        }
-        else
-        {
-            echo "Nomes diferentes";
-        }
-    </pre>
-    <p>
-        Podemos verificar se a variavel é verdadeira ou falsa  
-    </p>
-    <pre>
-        if($ativo)
-        {
-            echo "Verdadeira";
-        }
-        else
-        {
-            echo "Falsa";
-        }
-    </pre>
+            echo "<hr/>";
+        
+            for($i = 0; $i <= 3; $i++)
+            {
+                ?>
+                    <b>Oiii</b><br>
+                <?php
+            }
+        ?>
 
 </div>
 
-    <script src="bootstrap.bundle.min.js"></script>
+     <script src="bootstrap.bundle.min.js"></script>
 </body>
 </html>

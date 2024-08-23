@@ -33,7 +33,7 @@
           </a>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="dropdown.php" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Dropdown
           </a>
           <ul class="dropdown-menu">
@@ -68,6 +68,6 @@
 
 </div>
 
-    <script src="bootstrap.bundle.mim.js"></script>
+     <script src="bootstrap.bundle.min.js"></script>
 </body>
 </html>
