@@ -145,6 +145,26 @@
 
     ?>
 
+<p> Para varrer todo o array de chave e valor precisamos de um laço de repetição exclusivos chamado foreach()</p>
+    <pre>
+        foreach ($$resultados as $Chave => $valor);
+        {
+          echo $$resultados [$Chave];
+          // ou
+          echo $valor;
+        }
+    </pre>
+
+    <?php //  variavel array  chave    valor
+    foreach ($resultados as $Chave => $valor)
+    {
+      echo "Valor pela chave: ".$resultados[$Chave]."<br>";
+      // ou
+      echo "Apenas valor: ".$valor."<br>";
+      echo "Apenas chave: ".$Chave."<br>":
+    }
+    ?>
+
 </div>
 
      <script src="bootstrap.bundle.min.js"></script>
