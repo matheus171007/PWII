@@ -44,9 +44,9 @@
                 echo "<div class = 'alert alert-success'> Salvo no Banco com sucesso! </div>";
             }
             else
-            (
+            {
                 echo "<div class = 'alert alert-danger'> Ocorreu algum erro ao salvar! </div>";
-            )
+            }
 
             //Executa a lógica do programa
             //Salvar no banco

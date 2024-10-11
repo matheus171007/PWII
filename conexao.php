@@ -16,6 +16,8 @@ $script = "
         IMAGEM VARCHAR (50),
         ATIVO BIT NOT NULL
     );
+    INSERT INTO PRODUTOS (DESCRICAO, CODIGO_BARRAS, VALOR, ATIVO) VALUES ( 'Amendoin Verde', '7898728640096', 5.50, 1);
+    INSERT INTO PRODUTOS (DESCRICAO, CODIGO_BARRAS, VALOR, ATIVO) VALUES ( 'Goiabinha Saborosa', '7897045700725', 1.50, 1);
 ";
 
 $conexao = new mysqli($servidor, $usuario, $senha, $banco);
