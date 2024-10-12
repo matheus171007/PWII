@@ -62,28 +62,43 @@
 
 ?>
 
-<form action="novo_produto.php" method="post">
+<div class="row">
 
-    <label>Nome</label>
-    <input type="text" name="nome" value="<?php echo $nome; ?>"/>
-    <br>
+        <div class="col-4"></div>
+        <div class="col-4">
+            <div class="card">
+                <div class="card-header">
+                    Cadastrar novo produto
+                </div>
+                <div class="card-body">
+                    <form action="novo_produto.php" method="post">
 
-    <label>Valor</label>
-    <input type="number" name="valor" value="<?php echo $valor; ?>"/>
-    <br>
+                        <label>Nome</label>
+                        <input scope="row" class="form-control" type="text" name="nome" value="<?php echo $nome; ?>"/>
+                        <br>
 
-    <label>Código de Barras</label>
-    <input type="text" name="codigobarras" value="<?php echo $codigobarras; ?>"/>
-    <br>
+                        <label>Valor</label>
+                        <input class="form-control" type="number" name="valor" value="<?php echo $valor; ?>"/>
+                        <br>
 
-    <label>Data de Validade</label>
-    <input type="date" name="datavalidade" value="<?php echo $datavalidade; ?>" />
-    <br>
+                        <label>Código de Barras</label>
+                        <input class="form-control" type="text" name="codigobarras" value="<?php echo $codigobarras; ?>"/>
+                        <br>
 
-    <button type='submit' class='btn btn-success'>
-        Enviar os Dados
-    </button>
+                        <label>Data de Validade</label>
+                        <input class="form-control" type="date" name="datavalidade" value="<?php echo $datavalidade; ?>" />
+                        <br>
 
-</form>
+                        <button type='submit' class='btn btn-success'>
+                            Enviar os Dados
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+
+        </div>
+        <div class="col-4"></div>
+</div>
 
 <?php include "rodape.php"; ?>

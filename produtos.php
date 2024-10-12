@@ -9,11 +9,23 @@ if ( isset ($_GET["pesquisa"]) )
     {
         //Se a variavel estiver vazia executa aqui
 
+        $pesquisa = "";
+        include "conexao.php";
+        $sql = "Select Id, Descricao, Valor, Codigo_barras from Produtos order by Id desc";
+        $resultado =$conexao -> query($sql);
+        $conexao -> close();
 
     }
     else
     {
         //Aqui vai a lógica da pesquisa
+
+        $pesquisa = "";
+        include "conexao.php";
+        $sql = "Select Id, Descricao, Valor, Codigo_barras from Produtos where Id Descricao like '%$pesquisa%' ||  Codigo_barras = $pesquisa
+                order by Id desc";
+        $resultado =$conexao -> query($sql);
+        $conexao -> close();
     }
 }
 else
@@ -22,24 +34,6 @@ else
     include "conexao.php";
     $sql = "Select Id, Descricao, Valor, Codigo_barras from Produtos order by Id desc";
     $resultado =$conexao -> query($sql);
-    
-    if ($resultado -> num_rows > 0)
-    {
-        while ($row = $resultado -> fetch_assoc())
-        {
-            echo "<tr>";
-            echo "<td>" . $row["Id"] . "</td>";
-            echo "<td>" . $row["Descricao"] . "</td>";
-            echo "<td>" . $row["Valor"] . "</td>";
-            echo "<td><a href = 'editar_produto.php?id = $row[Id]' class = 'btn btn-warning' >Editar</a>";
-            echo "<a class = 'btn btn-danger'>Excluir</a></td>";
-            echo "</tr>";
-        }
-    }
-    else
-    {
-        echo "<tr><td colspan = '3'>Nenhum registro encontrado</td></tr>";
-    }
     $conexao -> close();
 }
 
@@ -90,25 +84,34 @@ else
 
                         </thead>
                         <tbody>
+                            
+                            <?php
 
-                            <?php for($i = 0; $i < 25; $i++)
-                            {
-                                echo "<tr>
-                                        "<td>" . $row["Id"] . "</td>";
-                                        <td>Descrição $i</td>
-                                        <td>Valor $i</td>
-                                        <td>Código de barras $i</td>
-                                        <td>Imagem $i</td>
-                                        <td>
-                                            <a href = '' class = 'btn btn-warning'>
-                                                Editar
-                                            </a>
-                                            <a href = '' class = 'btn btn-danger'>
-                                                Excluir
-                                            </a>
-                                        </td>
-                                    </tr>";
-                            }
+                                include "conexao.php";
+                                $sql = "Select Id, Descricao, Valor, Codigo_barras, Imagem from Produtos order by Id desc";
+                                $resultado =$conexao -> query($sql);
+                                
+                                if ($resultado -> num_rows > 0)
+                                {
+                                    while ($row = $resultado -> fetch_assoc())
+                                    {
+                                        echo "<tr>";
+                                        echo "<td>" . $row["Id"] . "</td>";
+                                        echo "<td>" . $row["Descricao"] . "</td>";
+                                        echo "<td>" . $row["Valor"] . "</td>";
+                                        echo "<td>" . $row["Codigo_barras"] . "</td>";
+                                        echo "<td>" . $row["Imagem"] . "</td>";
+                                        echo "<td><a href = 'editar_produto.php?Id=$row[Id]' class = 'btn btn-warning' >Editar</a>";
+                                        echo "<a href = 'excluir_produto.php?Id=$row[Id]' class = 'btn btn-danger'>Excluir</a></td>";
+                                        echo "</tr>";
+                                    }
+                                }
+                                else
+                                {
+                                    echo "<tr><td colspan='3'>Nenhum registro encontrado</td></tr>";
+                                }
+                                $conexao -> close();
+                            
                             ?>
 
                         </tbody>
