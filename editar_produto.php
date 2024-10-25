@@ -2,13 +2,13 @@
 
 <?php
 
-    if (isset($_POST['ID']) && !empty($_POST['ID']) &&
-        isset($_POST['DESCRICAO']) && !empty($_POST['DESCRICAO']) &&
-        isset($_POST['VALOR']) && !empty($_POST['VALOR']) &&
-        isset($_POST['CODIGO_BARRAS']) && !empty($_POST['CODIGO_BARRAS'])) {
+    if (isset($_POST['Id']) && !empty($_POST['Id']) &&
+        isset($_POST['Descricao']) && !empty($_POST['Descricao']) &&
+        isset($_POST['Valor']) && !empty($_POST['Valor']) &&
+        isset($_POST['Codigo_barras']) && !empty($_POST['Codigo_barras'])) {
 
             include 'conexao.php';
-            $sql = "UPDATE produtos SET DESCRICAO = '$_POST[DESCRICAO]', VALOR = $_POST[VALOR], CODIGO_BARRAS = $_POST[CODIGO_BARRAS] WHERE ID = $_POST[ID]";
+            $sql = "UPDATE produtos SET Descricao = '$_POST[Descricao]', Valor = $_POST[Valor], Codigo_barras = $_POST[Codigo_barras] WHERE Id = $_POST[ID]";
             $resultado = $conexao->query($sql);
             if ($resultado) {
                 //lógica para mensagem de sucesso
@@ -18,17 +18,17 @@
             }    
         } 
 
-    if (isset($_GET['ID']) && !empty($_GET['ID'])) {
+    if (isset($_GET['Id']) && !empty($_GET['Id'])) {
         include 'conexao.php';
-        $sql = "SELECT ID, DESCRICAO, VALOR, CODIGO_BARRAS FROM produtos WHERE ID = $_GET[ID]";
+        $sql = "SELECT Id, Descricao, Valor, Codigo_barras FROM produtos WHERE Id = $_GET[Id]";
         $resultado = $conexao->query($sql);
         if ($resultado) {
             if ($resultado->num_rows > 0) {
                 while ($row = $resultado->fetch_assoc()) {
-                    $id = $row["ID"];
-                    $descricao = $row["DESCRICAO"];
-                    $valor = $row["VALOR"];
-                    $codigo_barras = $row["CODIGO_BARRAS"];
+                    $id = $row["Id"];
+                    $descricao = $row["Descricao"];
+                    $valor = $row["Valor"];
+                    $codigo_barras = $row["Codigo_barras"];
                 }
             }
             else {
@@ -45,10 +45,10 @@
 ?>
 
 <form action="editar_produto.php?id=<?php echo $id; ?>"method="post">
-    <input name="ID" value="<?php echo $id ?>"/>
-    <input name="DESCRICAO" value="<?php echo $descricao ?>"/>
-    <input name="VALOR" value="<?php echo $valor ?>"/>
-    <input name="CODIGO_BARRAS" value="<?php echo $codigo_barras ?>"/>
+    <input name="Id" value="<?php echo $id ?>"/>
+    <input name="Descricao" value="<?php echo $descricao ?>"/>
+    <input name="Valor" value="<?php echo $valor ?>"/>
+    <input name="Codigo_barras" value="<?php echo $codigo_barras ?>"/>
     <button type="submit">Salvar alterações</button>
 </form>
 
