@@ -8,7 +8,7 @@
         {
             // Se a variável estiver vazia executa aqui
             include "conexao.php";
-            $sql = "SELECT Id, Nome FROM categorias ORDER BY Id desc";
+            $sql = "SELECT id, Login FROM usuarios ORDER BY Id desc";
             $resultado = $conexao -> query($sql);
             $conexao -> close();
         }
@@ -16,7 +16,7 @@
         {
             // Aqui vai a lógica da pesquisa
             include "conexao.php";
-            $sql = "SELECT Id, Nome FROM categorias WHERE Nome LIKE '%$pesquisa%' ORDER BY Id desc";
+            $sql = "SELECT Id, Login FROM usuarios WHERE Login LIKE '%$pesquisa%' ORDER BY Id desc";
             $resultado = $conexao -> query($sql);
             $conexao -> close();
         }
@@ -25,7 +25,7 @@
     {
         $pesquisa = "";
         include "conexao.php";
-        $sql = "SELECT Id, Nome FROM categorias ORDER BY Id desc";
+        $sql = "SELECT Id, Login FROM usuarios ORDER BY Id desc";
         $resultado = $conexao -> query($sql);
         $conexao->close();
     }
@@ -35,17 +35,17 @@
     <div class="col-12">
         <div class="card">
             <div class="card-header">
-                Lista de Categorias
+                Lista de Usuários
             </div>
             <div class="card-body">
                 <div class="row">
                     <div class="col-2">
-                        <a href="novo_categorias.php" class="btn btn-success">
-                            Nova Categoria
+                        <a href="novo_usuario.php" class="btn btn-success">
+                            Novo Usuário
                         </a>
                     </div>
                     <div class="col-8">
-                        <form action="categorias.php" method="get">
+                        <form action="usuarios.php" method="get">
                         <div class="input-group mb-3">
                             <input type="text" name="pesquisa" value="<?php echo $pesquisa; ?>" class="form-control" placeholder="Digite sua pesquisa aqui...">
                             <button class="btn btn-primary" type="submit">
@@ -62,7 +62,7 @@
                             <thead>
                                 <tr>
                                 <th scope="col">Id</th>
-                                <th scope="col">Nome das Categorias</th>
+                                <th scope="col">Nome dos Usuários</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -73,7 +73,7 @@
                                         {
                                             echo "<tr>";
                                             echo "<td>" . $row["Id"] . "</td>";
-                                            echo "<td>" . $row["Nome"] . "</td>";
+                                            echo "<td>" . $row["Login"] . "</td>";
                                             echo "<td><a href = 'editar_categorias.php?Id=$row[Id]' class = 'btn btn-warning' >Editar</a>";
                                             echo "<a href = 'excluir_categorias.php?Id=$row[Id]' class = 'btn btn-danger'>Excluir</a></td>";
                                             echo "</tr>";

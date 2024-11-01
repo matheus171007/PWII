@@ -58,6 +58,17 @@
           Atividade para compor a nota de PW
           </a>
         </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Loja
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="usuarios.php">Usuário</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="produtos.php">Produtos</a></li>
+            <li><a class="dropdown-item" href="categorias.php">Categorias</a></li>
+          </ul>
+        </li>
       </ul>
       <form class="d-flex" role="search">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
