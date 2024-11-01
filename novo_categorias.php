@@ -15,9 +15,9 @@
 
             $nome = $_POST["nome"];
             
-            $query = "INSERT INTO categorias (NOME) 
+            $query = "INSERT INTO categorias (nome) 
             
-                    VALUES ( '$nome', 1 )";
+                    VALUES ( '$nome')";
 
             $resultado = $conexao->query($query);
 

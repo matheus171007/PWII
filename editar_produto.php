@@ -8,7 +8,7 @@
         isset($_POST['Codigo_barras']) && !empty($_POST['Codigo_barras'])) {
 
             include 'conexao.php';
-            $sql = "UPDATE produtos SET Descricao = '$_POST[Descricao]', Valor = $_POST[Valor], Codigo_barras = $_POST[Codigo_barras] WHERE Id = $_POST[ID]";
+            $sql = "UPDATE Produtos SET Descricao = '$_POST[Descricao]', Valor = $_POST[Valor], Codigo_barras = $_POST[Codigo_barras] WHERE Id = $_POST[Id]";
             $resultado = $conexao->query($sql);
             if ($resultado) {
                 //lógica para mensagem de sucesso
@@ -40,11 +40,11 @@
         }
     }
     else {
-        header('location: produtos.php?erro=Nenhum ID informado');
+        header('location: produtos.php?erro=Nenhum Id informado');
     }
 ?>
 
-<form action="editar_produto.php?id=<?php echo $id; ?>"method="post">
+<form action="editar_produto.php?Id=<?php echo $id; ?>"method="post">
     <input name="Id" value="<?php echo $id ?>"/>
     <input name="Descricao" value="<?php echo $descricao ?>"/>
     <input name="Valor" value="<?php echo $valor ?>"/>

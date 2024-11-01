@@ -4,7 +4,7 @@ if ( !empty($_GET['Id']) && isset( $_GET['Id'] ) )
 {
     // Lógica de exclusão
     include 'conexao.php';
-    $sql = "Delete from Produtos where Id = $_GET[Id]"; 
+    $sql = "Delete from Categorias where Id = $_GET[Id]"; 
     $resultado = $conexao -> query($sql);
     if ($resultado)
     {

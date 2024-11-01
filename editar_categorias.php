@@ -6,7 +6,7 @@
         isset($_POST['Nome']) && !empty($_POST['Nome'])) {
 
             include 'conexao.php';
-            $sql = "UPDATE categorias SET Nome = '$_POST[Nome]' WHERE Id = $_POST[ID]";
+            $sql = "UPDATE Categorias SET Nome = '$_POST[Nome]' WHERE Id = $_POST[Id]";
             $resultado = $conexao->query($sql);
             if ($resultado) {
                 //lógica para mensagem de sucesso
@@ -36,7 +36,7 @@
         }
     }
     else {
-        header('location: categorias.php?erro=Nenhum ID informado');
+        header('location: categorias.php?erro=Nenhum Id informado');
     }
 ?>
 

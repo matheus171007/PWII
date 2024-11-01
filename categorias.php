@@ -1,4 +1,4 @@
-<?php include "cabecalho.php"; ?>
+<?php include "cabecalho.php" ?>
 
 <?php
     if(isset ($_GET["pesquisa"]))
@@ -8,7 +8,7 @@
         {
             // Se a variável estiver vazia executa aqui
             include "conexao.php";
-            $sql = "SELECT Id, Nome FROM categorias ORDER BY Id desc";
+            $sql = "SELECT id, nome FROM categorias ORDER BY Id desc";
             $resultado = $conexao -> query($sql);
             $conexao -> close();
         }
@@ -74,8 +74,8 @@
                                             echo "<tr>";
                                             echo "<td>" . $row["Id"] . "</td>";
                                             echo "<td>" . $row["Nome"] . "</td>";
-                                            echo "<td><a href = 'editar_produto.php?Id=$row[Id]' class = 'btn btn-warning' >Editar</a>";
-                                            echo "<a href = 'excluir_produto.php?Id=$row[Id]' class = 'btn btn-danger'>Excluir</a></td>";
+                                            echo "<td><a href = 'editar_categorias.php?Id=$row[Id]' class = 'btn btn-warning' >Editar</a>";
+                                            echo "<a href = 'excluir_categorias.php?Id=$row[Id]' class = 'btn btn-danger'>Excluir</a></td>";
                                             echo "</tr>";
                                         }
                                     } 
