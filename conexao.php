@@ -46,6 +46,13 @@ $script = "
         NOME VARCHAR(80) NOT NULL
     );
 
+    INSERT INTO CATEGORIAS (NOME) VALUES
+    ('Limpeza'),
+    ('Domestico'),
+    ('Eletrônico'),
+    ('Gamer'),
+    ('Vestuário');
+
     CREATE TABLE USUARIOS (
         ID INT PRIMARY KEY AUTO_INCREMENT,
         LOGIN VARCHAR(50) NOT NULL,

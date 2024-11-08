@@ -74,7 +74,7 @@
                                             echo "<tr>";
                                             echo "<td>" . $row["Id"] . "</td>";
                                             echo "<td>" . $row["Login"] . "</td>";
-                                            echo "<td><a href = 'editar_categorias.php?Id=$row[Id]' class = 'btn btn-warning' >Editar</a>";
+                                            echo "<td><a href = 'editar_usuario.php?Id=$row[Id]' class = 'btn btn-warning' >Editar</a>";
                                             echo "<a href = 'excluir_categorias.php?Id=$row[Id]' class = 'btn btn-danger'>Excluir</a></td>";
                                             echo "</tr>";
                                         }
