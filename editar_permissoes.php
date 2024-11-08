@@ -3,11 +3,11 @@
 <?php
 
     if (isset($_POST['Id']) && !empty($_POST['Id']) &&
-        isset($_POST['login']) && !empty($_POST['login']) &&
-        isset($_POST['senha']) && !empty($_POST['senha'])) {
+        isset($_POST['descricao']) && !empty($_POST['descricao']) &&
+        isset($_POST['role']) && !empty($_POST['role'])) {
 
             include 'conexao.php';
-            $sql = "UPDATE Usuarios SET login = '$_POST[login]', senha = '$_POST[senha]' WHERE Id = $_POST[Id]";
+            $sql = "UPDATE Permissoes SET descricao = '$_POST[descricao]', role = '$_POST[role]' WHERE Id = $_POST[Id]";
             $resultado = $conexao->query($sql);
             if ($resultado) {
                 //lógica para mensagem de sucesso
@@ -19,33 +19,33 @@
 
     if (isset($_GET['Id']) && !empty($_GET['Id'])) {
         include 'conexao.php';
-        $sql = "SELECT Id, login, senha FROM usuarios WHERE Id = $_GET[Id]";
+        $sql = "SELECT Id, descricao, role FROM permissoes WHERE Id = $_GET[Id]";
         $resultado = $conexao->query($sql);
         if ($resultado) {
             if ($resultado->num_rows > 0) {
                 while ($row = $resultado->fetch_assoc()) {
                     $id = $row["Id"];
-                    $login = $row["login"];
-                    $senha = $row["senha"];
+                    $descricao = $row["descricao"];
+                    $role = $row["role"];
                 }
             }
             else {
-                header('location: usuarios.php?erro=Nenhum registro encontrado');
+                header('location: permissoes.php?erro=Nenhum registro encontrado');
             }
         }
         else {
-           header('location: usuarios.php?erro=Erro do if do resultado');
+           header('location: permissoes.php?erro=Erro do if do resultado');
         }
     }
     else {
-        header('location: usuarios.php?erro=Nenhum Id informado');
+        header('location: permissoes.php?erro=Nenhum Id informado');
     }
 ?>
 
-<form action="editar_usuario.php?Id=<?php echo $id; ?>"method="post">
+<form action="editar_permissoes.php?Id=<?php echo $id; ?>"method="post">
     <input name="Id" value="<?php echo $id ?>"/>
-    <input name="login" value="<?php echo $login ?>"/>
-    <input name="senha" value="<?php echo $senha ?>"/>
+    <input name="descricao" value="<?php echo $descricao ?>"/>
+    <input name="role" value="<?php echo $role ?>"/>
     <button type="submit">Salvar alterações</button>
 </form>
 

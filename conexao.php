@@ -60,6 +60,13 @@ $script = "
         ATIVO BIT DEFAULT 1
     );
 
+    INSERT INTO USUARIOS (LOGIN, SENHA) VALUES
+    ('Luan', 'ldx'),
+    ('João', 'calvo'),
+    ('Murilo', 'giga 2'),
+    ('Ytalo', 'giga 1'),
+    ('Fernando', 'toro');
+
     CREATE TABLE PERMISSOES (
         ID INT PRIMARY KEY AUTO_INCREMENT,
         DESCRICAO VARCHAR(150) NOT NULL,

@@ -8,7 +8,7 @@
         {
             // Se a variável estiver vazia executa aqui
             include "conexao.php";
-            $sql = "SELECT id, Login FROM usuarios ORDER BY Id desc";
+            $sql = "SELECT Id, login, senha FROM usuarios ORDER BY Id desc";
             $resultado = $conexao -> query($sql);
             $conexao -> close();
         }
@@ -16,7 +16,7 @@
         {
             // Aqui vai a lógica da pesquisa
             include "conexao.php";
-            $sql = "SELECT Id, Login FROM usuarios WHERE Login LIKE '%$pesquisa%' ORDER BY Id desc";
+            $sql = "SELECT Id, login, senha FROM usuarios WHERE Login LIKE '%$pesquisa%' ORDER BY Id desc";
             $resultado = $conexao -> query($sql);
             $conexao -> close();
         }
@@ -25,7 +25,7 @@
     {
         $pesquisa = "";
         include "conexao.php";
-        $sql = "SELECT Id, Login FROM usuarios ORDER BY Id desc";
+        $sql = "SELECT Id, login, senha FROM usuarios ORDER BY Id desc";
         $resultado = $conexao -> query($sql);
         $conexao->close();
     }
@@ -63,6 +63,7 @@
                                 <tr>
                                 <th scope="col">Id</th>
                                 <th scope="col">Nome dos Usuários</th>
+                                <th scope="col">Senha dos Usuários</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -73,9 +74,10 @@
                                         {
                                             echo "<tr>";
                                             echo "<td>" . $row["Id"] . "</td>";
-                                            echo "<td>" . $row["Login"] . "</td>";
+                                            echo "<td>" . $row["login"] . "</td>";
+                                            echo "<td>" . $row["senha"] . "</td>";
                                             echo "<td><a href = 'editar_usuario.php?Id=$row[Id]' class = 'btn btn-warning' >Editar</a>";
-                                            echo "<a href = 'excluir_categorias.php?Id=$row[Id]' class = 'btn btn-danger'>Excluir</a></td>";
+                                            echo "<a href = 'excluir_usuario.php?Id=$row[Id]' class = 'btn btn-danger'>Excluir</a></td>";
                                             echo "</tr>";
                                         }
                                     } 

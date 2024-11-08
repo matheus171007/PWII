@@ -1,4 +1,4 @@
-<?php include "cabecalho.php"?>
+<?php include "cabecalho.php" ?>
 
 <?php
     if(isset ($_GET["pesquisa"]))
@@ -8,7 +8,7 @@
         {
             // Se a variável estiver vazia executa aqui
             include "conexao.php";
-            $sql = "SELECT Id, Descricao, Valor, Codigo_barras, Imagem , Categoria_Id FROM produtos ORDER BY Id desc";
+            $sql = "SELECT Id, descricao, role FROM permissoes ORDER BY Id desc";
             $resultado = $conexao -> query($sql);
             $conexao -> close();
         }
@@ -16,12 +16,7 @@
         {
             // Aqui vai a lógica da pesquisa
             include "conexao.php";
-            $sql = "SELECT p.Id, p.Descricao, p.Valor, p.Codigo_barras, p.Imagem, p.Categoria_Id,
-                    c.Nome
-                    FROM produtos p  LEFT JOIN categorias c
-                    ON ( p.Categoria_Id = c.Id ) 
-                    WHERE Descricao LIKE '%$pesquisa%'
-                    ORDER BY Id desc";
+            $sql = "SELECT Id, descricao, role FROM permissoes WHERE Login LIKE '%$pesquisa%' ORDER BY Id desc";
             $resultado = $conexao -> query($sql);
             $conexao -> close();
         }
@@ -30,32 +25,27 @@
     {
         $pesquisa = "";
         include "conexao.php";
-        $sql = "SELECT p.Id, p.Descricao, p.Valor, p.Codigo_barras, p.Imagem, p.Categoria_Id ,
-                c.Nome
-                FROM produtos p LEFT JOIN categorias c
-                ON ( p.Categoria_Id = c.Id )
-                ORDER BY Id desc";
+        $sql = "SELECT Id, descricao, role FROM permissoes ORDER BY Id desc";
         $resultado = $conexao -> query($sql);
         $conexao->close();
     }
 ?>
 
-<br>
 <div class="row">
     <div class="col-12">
         <div class="card">
             <div class="card-header">
-                Lista de Produtos
+                Permissões
             </div>
             <div class="card-body">
                 <div class="row">
                     <div class="col-2">
-                        <a href="novo_produto.php" class="btn btn-success">
-                            Novo Produto
+                        <a href="novo_permissoes.php" class="btn btn-success">
+                            Nova Permissão
                         </a>
                     </div>
                     <div class="col-8">
-                        <form action="produtos.php" method="get">
+                        <form action="usuarios.php" method="get">
                         <div class="input-group mb-3">
                             <input type="text" name="pesquisa" value="<?php echo $pesquisa; ?>" class="form-control" placeholder="Digite sua pesquisa aqui...">
                             <button class="btn btn-primary" type="submit">
@@ -65,7 +55,7 @@
                         </form>
                     </div>
                     <div class="col-2"></div>
-                </div>
+                </div>  
                 <div class="row">
                     <div class="col-12">
                         <table class="table table-hover table-striped">
@@ -73,11 +63,7 @@
                                 <tr>
                                 <th scope="col">Id</th>
                                 <th scope="col">Descrição</th>
-                                <th scope="col">Valor</th>
-                                <th scope="col">Código de barras</th>
-                                <th scope="col">Imagem</th>
-                                <th scope="col">Categoria</th>
-                                <th scope="col"></th>
+                                <th scope="col">Role</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -88,13 +74,10 @@
                                         {
                                             echo "<tr>";
                                             echo "<td>" . $row["Id"] . "</td>";
-                                            echo "<td>" . $row["Descricao"] . "</td>";
-                                            echo "<td>" . $row["Valor"] . "</td>";
-                                            echo "<td>" . $row["Codigo_barras"] . "</td>";
-                                            echo "<td>" . $row["Imagem"] . "</td>";
-                                            echo "<td>" . $row["Nome"] . "</td>";
-                                            echo "<td><a href = 'editar_produto.php?Id=$row[Id]' class = 'btn btn-warning' >Editar</a>";
-                                            echo "<a href = 'excluir_produto.php?Id=$row[Id]' class = 'btn btn-danger'>Excluir</a></td>";
+                                            echo "<td>" . $row["descricao"] . "</td>";
+                                            echo "<td>" . $row["role"] . "</td>";
+                                            echo "<td><a href = 'editar_permissoes.php?Id=$row[Id]' class = 'btn btn-warning' >Editar</a>";
+                                            echo "<a href = 'excluir_permissoes.php?Id=$row[Id]' class = 'btn btn-danger'>Excluir</a></td>";
                                             echo "</tr>";
                                         }
                                     } 
@@ -112,4 +95,5 @@
     </div>
 </div>
 
-<?php include "rodape.php"?>
+
+<?php include "rodape.php"; ?>
