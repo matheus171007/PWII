@@ -37,7 +37,7 @@ $conexao->close();
                 <div class="row">
                     <div class="col-2">
                         <a href="novo_usuario.php" class="btn btn-success" >
-                            Novo Usuário
+                            Novo usuário
                         </a>
                     </div>
                     <div class="col-8">

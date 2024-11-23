@@ -79,6 +79,14 @@ $script = "
         DESCRICAO VARCHAR(150) NOT NULL,
         ROLE VARCHAR(50) NOT NULL
     );
+
+    INSERT INTO PERMISSOES (DESCRICAO, ROLE) VALUES
+    ('Permitido a realizar remoções de produtos', 'Remover (Produto)'),
+    ('Permitido a realizar remoções de categorias', 'Remover (Categoria)'),
+    ('Permitido a realizar edições de produtos', 'Edição (Produto)'),
+    ('Permitido a realizar edições de categorias', 'Edição (Categoria)'),
+    ('Permitido a adição de novos produtos', 'Adição (Produto)'),
+    ('Permitido a adição de novas categorias', 'Adição (Categoria)');
     
     CREATE TABLE USUARIOS_PERMISSOES (
         ID INT PRIMARY KEY AUTO_INCREMENT,
@@ -87,6 +95,8 @@ $script = "
         CONSTRAINT FK_USUARIO FOREIGN KEY (usuario_id) REFERENCES USUARIOS(ID) ON DELETE CASCADE,
         CONSTRAINT FK_PERMISSAO FOREIGN KEY (permissao_id) REFERENCES PERMISSOES(ID) ON DELETE CASCADE
     );
+
+    
     
 ";
 

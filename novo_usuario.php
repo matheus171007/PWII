@@ -70,6 +70,33 @@
                         <button type='submit' class='btn btn-success'>
                             Enviar os Dados
                         </button>
+
+                    </form>
+                </div>
+            </div>
+
+
+        </div>
+        <div class="col-4"></div>
+</div>
+
+<div class="row">
+
+        <div class="col-4"></div>
+        <div class="col-4">
+            <div class="card">
+                <div class="card-header">
+                    Já tenho um usuário
+                </div>
+                <div class="card-body">
+                    <form action="novo_usuario.php" method="post">
+
+                    <div class="col-2">
+                        <a href="login.php" class="btn btn-primary" >
+                            Login
+                        </a>
+                        </div>
+
                     </form>
                 </div>
             </div>
